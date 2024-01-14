@@ -11,6 +11,7 @@ function App() {
   const [listening, setListening] = useState(false);
   const [text, setText] = useState("");
   const [enteredTexts, setEnteredTexts] = useState([]);
+  const [inputText, setInputText] = useState(""); // New state to hold input text
 
   const handleStart = () => recognition.start();
 
@@ -25,6 +26,13 @@ function App() {
     recognition.addEventListener('end', () => setListening(false));
   }, []);
 
+  function handleClick() {
+    // Add the input text to enteredTexts
+    setEnteredTexts((prevTexts) => [...prevTexts, inputText]);
+    // Clear the input field
+    setInputText("");
+  }
+
   return (
     <div className='container'>
       <div className="toDo-wrapper">
@@ -33,8 +41,18 @@ function App() {
         ))}
       </div>
       <button onClick={handleStart}>
-        {listening ? 'tinglashda...' : 'Boshlash'}
+        {listening ? 'tinglashda...' : 'Ovozli qoshish'}
       </button>
+      <div className="ToDoInput">
+        <input
+          type="search"
+          className='Search'
+          placeholder='Malumot kiriting'
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+        />
+        <button onClick={handleClick}>Saqlash</button>
+      </div>
     </div>
   );
 }

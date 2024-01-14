@@ -31,3 +31,16 @@ button {
  border-radius: 10px;
  margin: 30px;
 }
+.Search {
+  padding: 10px;
+  width: 70%;
+  outline: none;
+  border-radius: 10px;
+    margin-right: 10px;
+}
+.ToDoInput {
+  margin-top:20px ;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
