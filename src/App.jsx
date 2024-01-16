@@ -11,7 +11,7 @@ function App() {
   const [listening, setListening] = useState(false);
   const [text, setText] = useState("");
   const [enteredTexts, setEnteredTexts] = useState([]);
-  const [inputText, setInputText] = useState(""); // New state to hold input text
+  const [inputText, setInputText] = useState("");
 
   const handleStart = () => recognition.start();
 
@@ -27,18 +27,26 @@ function App() {
   }, []);
 
   function handleClick() {
-    // Add the input text to enteredTexts
+  
     setEnteredTexts((prevTexts) => [...prevTexts, inputText]);
-    // Clear the input field
+    
     setInputText("");
   }
+  function handleDelete(index) {
+  x
+    setEnteredTexts((prevTexts) => prevTexts.filter((_, i) => i !== index));
+  }
+  
 
   return (
     <div className='container'>
       <div className="toDo-wrapper">
-        {enteredTexts.map((enteredText, index) => (
-          <div className='list' key={index}>{enteredText}</div>
-        ))}
+      {enteredTexts.map((enteredText, index) => (
+  <div className='list' key={index}>
+    {enteredText} 
+    <button onClick={() => handleDelete(index)}>Delete</button>
+  </div>
+))}
       </div>
       <button onClick={handleStart}>
         {listening ? 'tinglashda...' : 'Ovozli qoshish'}

@@ -6,6 +6,11 @@
 body{
   background: lightgray;
 }
+.list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .container {
   width: 600px;
   padding: 20px;
