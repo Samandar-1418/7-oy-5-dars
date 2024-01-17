@@ -29,17 +29,17 @@ function App() {
   function handleClick() {
   
     setEnteredTexts((prevTexts) => [...prevTexts, inputText]);
-    
     setInputText("");
   }
   function handleDelete(index) {
-  x
+  
     setEnteredTexts((prevTexts) => prevTexts.filter((_, i) => i !== index));
   }
   
 
   return (
     <div className='container'>
+      <h4>To-DO-LIST</h4>
       <div className="toDo-wrapper">
       {enteredTexts.map((enteredText, index) => (
   <div className='list' key={index}>
